@@ -1,0 +1,36 @@
+{
+  "name": "mcp-command-compiler",
+  "version": "0.1.0",
+  "description": "Compile conservative MCP command shortcuts into deterministic parsers.",
+  "license": "MIT",
+  "type": "module",
+  "bin": {
+    "mcp-command-compiler": "./dist/cli/index.js"
+  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "tsup src/index.ts src/cli/index.ts --format esm --dts",
+    "test": "vitest run",
+    "dev": "tsx src/cli/index.ts",
+    "self-improve": "tsx src/cli/index.ts self-improve"
+  },
+  "dependencies": {
+    "commander": "^14.0.0",
+    "zod": "^3.25.76"
+  },
+  "devDependencies": {
+    "@types/node": "^24.9.1",
+    "tsup": "^8.5.0",
+    "tsx": "^4.20.6",
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.8"
+  }
+}

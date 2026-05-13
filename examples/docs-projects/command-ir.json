@@ -1,0 +1,300 @@
+{
+  "version": 1,
+  "builtins": [
+    {
+      "name": "help",
+      "aliases": [
+        "help",
+        "?"
+      ]
+    }
+  ],
+  "tools": [
+    {
+      "toolName": "list_documents",
+      "safety": {
+        "readOnly": true,
+        "destructive": false,
+        "requiresConfirmation": false
+      },
+      "command": {
+        "intent": "list",
+        "nouns": [
+          "docs",
+          "documents"
+        ],
+        "verbs": [
+          "list",
+          "show"
+        ],
+        "aliases": [
+          "list docs",
+          "list all docs",
+          "show docs",
+          "list documents",
+          "list all documents",
+          "show documents"
+        ],
+        "examples": [
+          "list docs",
+          "list all docs"
+        ]
+      },
+      "matchers": [
+        {
+          "kind": "exact",
+          "phrase": "list docs"
+        },
+        {
+          "kind": "exact",
+          "phrase": "list all docs"
+        },
+        {
+          "kind": "exact",
+          "phrase": "show docs"
+        },
+        {
+          "kind": "exact",
+          "phrase": "list documents"
+        },
+        {
+          "kind": "exact",
+          "phrase": "list all documents"
+        },
+        {
+          "kind": "exact",
+          "phrase": "show documents"
+        }
+      ],
+      "args": {
+        "defaults": {
+          "limit": 20
+        },
+        "captures": []
+      },
+      "help": {
+        "summary": "List documents in the current workspace.",
+        "usage": [
+          "list docs",
+          "list all docs",
+          "show docs",
+          "list documents",
+          "list all documents",
+          "show documents"
+        ]
+      }
+    },
+    {
+      "toolName": "search_documents",
+      "safety": {
+        "readOnly": true,
+        "destructive": false,
+        "requiresConfirmation": false
+      },
+      "command": {
+        "intent": "search",
+        "nouns": [
+          "docs",
+          "documents"
+        ],
+        "verbs": [
+          "search",
+          "find"
+        ],
+        "aliases": [
+          "search docs <query>",
+          "find docs <query>",
+          "search documents <query>",
+          "find documents <query>"
+        ],
+        "examples": [
+          "search docs shader",
+          "search documents shader"
+        ]
+      },
+      "matchers": [
+        {
+          "kind": "prefix",
+          "prefix": "search docs ",
+          "captureRestAs": "query"
+        },
+        {
+          "kind": "prefix",
+          "prefix": "find docs ",
+          "captureRestAs": "query"
+        },
+        {
+          "kind": "prefix",
+          "prefix": "search documents ",
+          "captureRestAs": "query"
+        },
+        {
+          "kind": "prefix",
+          "prefix": "find documents ",
+          "captureRestAs": "query"
+        }
+      ],
+      "args": {
+        "defaults": {
+          "limit": 10
+        },
+        "captures": [
+          {
+            "name": "query",
+            "type": "string",
+            "required": true
+          }
+        ]
+      },
+      "help": {
+        "summary": "Search documents by text query.",
+        "usage": [
+          "search docs <query>",
+          "find docs <query>",
+          "search documents <query>",
+          "find documents <query>"
+        ]
+      }
+    },
+    {
+      "toolName": "get_document",
+      "safety": {
+        "readOnly": true,
+        "destructive": false,
+        "requiresConfirmation": false
+      },
+      "command": {
+        "intent": "get",
+        "nouns": [
+          "doc",
+          "document"
+        ],
+        "verbs": [
+          "get",
+          "open",
+          "read"
+        ],
+        "aliases": [
+          "get doc <id>",
+          "open doc <id>",
+          "read doc <id>",
+          "get document <id>",
+          "open document <id>",
+          "read document <id>"
+        ],
+        "examples": [
+          "get doc abc123",
+          "get document abc123"
+        ]
+      },
+      "matchers": [
+        {
+          "kind": "prefix",
+          "prefix": "get doc ",
+          "captureRestAs": "id"
+        },
+        {
+          "kind": "prefix",
+          "prefix": "open doc ",
+          "captureRestAs": "id"
+        },
+        {
+          "kind": "prefix",
+          "prefix": "read doc ",
+          "captureRestAs": "id"
+        },
+        {
+          "kind": "prefix",
+          "prefix": "get document ",
+          "captureRestAs": "id"
+        },
+        {
+          "kind": "prefix",
+          "prefix": "open document ",
+          "captureRestAs": "id"
+        },
+        {
+          "kind": "prefix",
+          "prefix": "read document ",
+          "captureRestAs": "id"
+        }
+      ],
+      "args": {
+        "defaults": {},
+        "captures": [
+          {
+            "name": "id",
+            "type": "string",
+            "required": true
+          }
+        ]
+      },
+      "help": {
+        "summary": "Read a single document by ID.",
+        "usage": [
+          "get doc <id>",
+          "open doc <id>",
+          "read doc <id>",
+          "get document <id>",
+          "open document <id>",
+          "read document <id>"
+        ]
+      }
+    },
+    {
+      "toolName": "list_projects",
+      "safety": {
+        "readOnly": true,
+        "destructive": false,
+        "requiresConfirmation": false
+      },
+      "command": {
+        "intent": "list",
+        "nouns": [
+          "projects"
+        ],
+        "verbs": [
+          "list",
+          "show"
+        ],
+        "aliases": [
+          "list projects",
+          "list all projects",
+          "show projects"
+        ],
+        "examples": [
+          "list projects",
+          "list all projects"
+        ]
+      },
+      "matchers": [
+        {
+          "kind": "exact",
+          "phrase": "list projects"
+        },
+        {
+          "kind": "exact",
+          "phrase": "list all projects"
+        },
+        {
+          "kind": "exact",
+          "phrase": "show projects"
+        }
+      ],
+      "args": {
+        "defaults": {
+          "limit": 20
+        },
+        "captures": []
+      },
+      "help": {
+        "summary": "List all projects.",
+        "usage": [
+          "list projects",
+          "list all projects",
+          "show projects"
+        ]
+      }
+    }
+  ]
+}
