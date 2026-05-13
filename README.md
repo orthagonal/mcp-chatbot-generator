@@ -1,6 +1,12 @@
 # mcp-command-compiler
 
-## Save tokens and the planet with a purpose-built parser for your AI's most common commands!
+## Save tokens and process faster by generating a CPU-based chatbot layer for your MCP queries
+
+_Most 'token-saving' libraries still route you through a local LLM. This one tries to cut the AI's out of the picture
+entirely if possible, by generating a chatbot layer to handle the most basic commands and outputs.  The result is a *much* 
+faster response time for the common commands_
+
+
 
 Compile **conservative, deterministic** natural-language command shortcuts from [Model Context Protocol](https://modelcontextprotocol.io/)-style tool definitions. Given a JSON list of tools (names, descriptions, JSON Schema inputs, optional annotations), the compiler builds an intermediate **command IR**, human-readable help (`MCP_COMMANDS.md`), and TypeScript that parses user text into a structured result: matched tool name, filled arguments, and whether confirmation is required.
 
